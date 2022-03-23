@@ -1,0 +1,74 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Clientes</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{/}">Spring</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="dropdown-item" th:href="@{/cliente/index}">Cliente</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="dropdown-item" th:href="@{/mueble/index}">Muebles</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<p></p>
+<h1 class="card-title" align="center">Rigistro de Muebles</h1>
+
+<div class="container p-4">
+
+    <div class="col-sm-6">
+        <a th:href="@{/mueble/new}" class="btn btn-success"
+           role="button">Agregar nuevo mueble </a>
+        <p></p>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Tipo de mueble</th>
+                    <th scope="col">Lote</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="mueble : ${muebles}">
+                    <th th:text="${mueble.id}"></th>
+                    <th th:text="${mueble.tipo_mueble}"></th>
+                    <th th:text="${mueble.lote}"></th>
+                    <th th:text="${mueble.precio}"></th>
+                    <th>
+                        <a th:href="@{/mueble/show/{id}(id=${mueble.id})}" class="btn btn-success"><i class="fas fa-user-edit ml-2"></i>Ver</a>
+                        <a th:href="@{/mueble/edit/{id}(id=${mueble.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i>Editar</a>
+                        <a th:href="@{/mueble/delete/{id}(id=${mueble.id})}" class="btn btn-danger"><i class="fas fa-user-times ml-2"></i>Eliminar</a>
+                    </th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

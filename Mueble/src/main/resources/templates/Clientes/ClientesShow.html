@@ -1,0 +1,59 @@
+<head th:fragment="head">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Vista</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{/index}">Spring</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="dropdown-item" th:href="@{/cliente/index}">Cliente</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="dropdown-item" th:href="@{/mueble/index}">Muebles</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="mx-auto" style="width: 300px;">
+    <h4>Detalles de solicitud</h4>
+    <div class="row">
+        <div class="col-md-80">
+            <div class="card card-bodi">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th >Nombre: </th>
+                        <td th:text="${cliente.nombre}"></td>
+                    </tr>
+                    <tr>
+                        <th >Direccion: </th>
+                        <td th:text="${cliente.direccion}">/td>
+                    </tr>
+                    <tr>
+                        <th>Mueble Solicitado</th>
+                        <td th:text="${cliente.mueble.tipo_mueble}" ></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
